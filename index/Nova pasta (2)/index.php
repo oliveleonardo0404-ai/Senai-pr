@@ -11,7 +11,7 @@
 
     <div class="flex esquerda">
 
-        <h1></h1>
+       <img src="" alt="">
 
 
     </div>
