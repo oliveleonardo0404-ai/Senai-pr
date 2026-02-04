@@ -29,13 +29,16 @@ public function passar()
 class NoCinema extends filme{
 
      public function tipo(): string {
-        return "Vingadores Doom day";
+        return "NoCinema";
 }
 
-
-
-
 }
+
+$vingadores = new NoCinema("Vingadores Doom day","heroi","05/11/2026","leonardo de caprio");
+
+$vingadores->passar();
+
+
 
     
 

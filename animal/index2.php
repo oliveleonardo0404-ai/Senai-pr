@@ -1,37 +1,41 @@
 <?php
 
 
-class animal{
-    public $patas;
-    public $peso;
-    public $especie;
-    public $tipo;
+abstract class animal{
+    protected $nome;
+    protected $peso;
+    private $tipo;
+    protected $especie;
 
-    function __construct( int $patas , float $peso , string $especie , string $tipo)
+    public function __construct( string $nome , float $peso , string $especie)
     {
-        $this->patas = $patas;
+        $this->nome = $nome;
         $this->peso = $peso;
         $this->especie = $especie;
-        $this->tipo = $tipo;
     }
     
-    function comer()
+    public function comer()
     {
-        echo "{$this->especie} esta comendo normalmente!!! \n";
+        $this->tipo = "mamifero";
+        //aqui ele só vai funcionar se colocar o os dados enquanto ele esteja na classe principal que esta a privada
+        echo "o {$this->nome} da especie {$this->tipo} esta comendo normalmente!!! \n";
+
     }
+    
+       abstract public function tipo(): string;
 
 }
 
-$Golden = new animal(4,30,"Canis lupus","mamifero");
+class cachorro extends animal{
 
-$Golden->comer();
+    public function tipo(): string {
+        return "cachorro";
+} 
 
-$hiena = new animal(4,47,"Crocuta crocuta","mamifero");
+}
 
-$hiena->comer();
+$golden =  new cachorro("carlos",25,"terrestre");
 
-$taturana = new animal(6,1,"Polyphemus moth","inseto");
-
-$taturana->comer();
+$golden->comer();
 
 
